@@ -27,7 +27,7 @@ export class UpdateEmployeePageComponent implements OnInit{
     this.serviceEmployee.editEmployee(this.data).subscribe(
       value => {
         console.log("Edit Completed:", value)
-        this.dialogRef.close()
+        this.dialogRef.close(true)
       },
       error => console.log("Error",error),
       () => {

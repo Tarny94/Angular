@@ -1,29 +1,13 @@
 .em-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  margin: 0 10px;
+  .em-details{
+    box-shadow: 0 0 15px -10px;
 
-.custom-mat-form-field{
-  width: 60%;
-}
+  }
 
-.em-details{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-}
-
-.custom-mat-form-button{
-  width: 30%;
+  .employee-list-navigate-name{
+    cursor: pointer;
+  }
 }
 
 
-
-.employee-list-navigate-name{
-  cursor: pointer;
-}

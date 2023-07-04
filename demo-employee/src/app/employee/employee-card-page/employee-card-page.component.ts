@@ -36,7 +36,7 @@ export class EmployeeCardPageComponent {
     )
     dialogRef.afterClosed().subscribe(
       result => {
-        this.employeeUpdated.emit();
+       if(result) this.employeeUpdated.emit();
       })
   }
 
@@ -48,7 +48,7 @@ export class EmployeeCardPageComponent {
     })
     dialogRef.afterClosed().subscribe(
       result => {
-        this.employeeUpdated.emit();
+        if (result) this.employeeUpdated.emit(result);
       })
   }
 }

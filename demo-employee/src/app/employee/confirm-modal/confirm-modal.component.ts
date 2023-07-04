@@ -26,7 +26,7 @@ export class ConfirmModalComponent {
       value => console.log("#Succes Delete", value),
       error => console.log("Error", error),
       () => {
-        this.dialogRef.close()
+        this.dialogRef.close(true)
         console.log("Complete")
       }
     )

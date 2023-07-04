@@ -12,13 +12,10 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
 
   filterName: string = "";
 
-  isListUpdated : boolean = false;
+  isTable : boolean = false;
 
   filterByName= new BehaviorSubject<string>("");
   filterByNameAction$ = this.filterByName.asObservable();
-
-  employeeUpdated= new Subject<IEmployee>();
-  employeeUpdatedAction$ = this.employeeUpdated.asObservable();
 
   employees$! : Observable<IEmployee[]>;
 
@@ -42,6 +39,9 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
     this.loadData()
   }
 
+  handleIsTable() {
+    this.isTable = !this.isTable
+  }
   onSelected() {
     this.filterByName.next(this.filterName);
     return  this.employees$

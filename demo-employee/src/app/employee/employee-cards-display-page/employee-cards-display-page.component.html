@@ -5,13 +5,14 @@
       <mat-label >Search 🔎</mat-label>
       <input matInput name="filterName" [(ngModel)]="filterName"  (ngModelChange)="onSelected()" >
     </mat-form-field >
-    <button mat-raised-button class="custom-mat-form-button" color="primary" (click)="handleAddEmployee()">ADD EMPLOYEE</button>
   </div>
-  <h2 class="carts-title">EMPLOYEE DETAILS</h2>
-  <div class="carts-details">
-
-
-
+  <div class="cards-title-details">
+    <h1 class="cards-title" >EMPLOYEE DETAILS</h1>
+    <button mat-raised-button class="custom-mat-form-button"  (click)="handleIsTable()">{{isTable? "SHOW CARDS" : "SHOW TABLE"}}</button>
+    <button mat-raised-button class="custom-mat-form-button" (click)="handleAddEmployee()">ADD EMPLOYEE</button>
+  </div>
+    <app-employee-table-display-page *ngIf="isTable"></app-employee-table-display-page>
+  <div *ngIf="!isTable" class="carts-details">
     <div *ngFor="let employee of employees$ | async">
       <app-employee-card-page [id]="employee.id"
                          [firstName]="employee.firstName"
@@ -24,6 +25,5 @@
       ></app-employee-card-page>
     </div>
   </div>
-
 </div>
 

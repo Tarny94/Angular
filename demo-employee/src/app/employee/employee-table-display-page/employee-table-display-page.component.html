@@ -1,16 +1,7 @@
 
 <div class="em-container">
 
-  <mat-form-field class="custom-mat-form-field"  >
-    <mat-label >Search</mat-label>
-    <input matInput  [(ngModel)]="filterName"  (ngModelChange)="onSelected()">
-  </mat-form-field >
-
   <div class="em-details">
-    <h1>Employee Table</h1>
-
-    <button mat-raised-button class="custom-mat-form-button" color="primary" (click)="handleAddEmployee()">ADD EMPLOYEE</button>
-
     <table  mat-table [dataSource]="employees$" >
       <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef>First Name</th>
