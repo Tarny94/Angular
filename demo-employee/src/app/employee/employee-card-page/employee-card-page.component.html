@@ -1,1 +1,21 @@
-<p>employee-card-page works!</p>
+<div>
+  <form>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title [title]="'First and Last Name'">{{firstName}} {{lastName}}</mat-card-title>
+        <mat-card-subtitle title="Email">{{email}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <div><mat-card-subtitle >Authority</mat-card-subtitle><h3> {{authority}}</h3></div>
+        <div><mat-card-subtitle>Phone </mat-card-subtitle><h3>{{phone}}</h3></div>
+
+      </mat-card-content>
+      <mat-card-actions class="card-buttons-contain" >
+        <button mat-stroked-button  color="primary" style="margin-right: 5px" class="employee-cart-buttons" (click)="onSubmit()">EDIT</button>
+        <button mat-stroked-button  color="primary" style="margin-right: 5px" class="employee-cart-buttons" (click)="onDelete()">DELETE</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

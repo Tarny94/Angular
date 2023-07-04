@@ -1,1 +1,92 @@
-<p>update-employee-page works!</p>
+<form novalidate
+      #signupForm="ngForm">
+  <div class="employee-container">
+    <div class="employee-fields">
+      <div class="employee-title">Edit Employee</div>
+      <mat-form-field class="custom-mat-form-field"  >
+        <mat-label >First Name</mat-label>
+        <input matInput
+               name="firstName"
+               type="text"
+               minlength="3"
+               #firstNameVar="ngModel"
+               [(ngModel)]="data.firstName"
+               required>
+        <span *ngIf="firstNameVar.errors?.['required'] && firstNameVar.dirty" class="error-fields"   >
+            Please enter your first name
+          </span>
+        <span *ngIf="firstNameVar.errors?.['minlength']" class="error-fields"   >
+            Please enter min 3 characters
+          </span>
+      </mat-form-field >
+      <mat-form-field class="custom-mat-form-field"  >
+        <mat-label>Last Name</mat-label>
+        <input matInput
+               id="lastNameId"
+               name="lastName"
+               [(ngModel)]="data.lastName"
+               minlength="3"
+               type="text"
+               #lastNameVar="ngModel"
+               required>
+        <span *ngIf="lastNameVar.errors?.['required'] && lastNameVar.dirty" class="error-fields"   >
+            Please enter your last name
+          </span>
+        <span *ngIf="lastNameVar.errors?.['minlength']" class="error-fields"   >
+            Please enter min 3 characters
+          </span>
+      </mat-form-field>
+
+      <mat-form-field class="custom-mat-form-field"  >
+        <mat-label>Email</mat-label>
+        <input matInput
+               id="emailId"
+               name="email"
+               type="email"
+               #emailVar="ngModel"
+               [(ngModel)]="data.email"
+               email
+               required>
+        <span *ngIf="emailVar.errors?.['required'] && emailVar.dirty" class="error-fields"   >
+            Please enter a email
+          </span>
+        <span *ngIf="emailVar.errors?.['email']" class="error-fields">
+              Please enter a valid email address.
+            </span>
+      </mat-form-field>
+      <mat-form-field class="custom-mat-form-field"  >
+        <mat-label>Phone</mat-label>
+        <input matInput
+               id="phoneId"
+               name="phone"
+               minlength="6"
+               type="tel"
+               placeholder="Phone"
+
+               #phoneVar="ngModel"
+               [(ngModel)]="data.phone"
+               required>
+        <span *ngIf="phoneVar.errors?.['required'] && phoneVar?.dirty" class="error-fields"   >
+            Please enter a phone number
+          </span>
+        <span *ngIf="phoneVar.errors?.['minlength']" class="error-fields" >
+              Please enter min 6 numbers.
+            </span>
+        <span *ngIf="phoneValidator(phoneVar.value)  && phoneVar?.dirty" class="error-fields">
+              It must not contain letters
+            </span>
+      </mat-form-field>
+      <mat-form-field class="custom-mat-form-field"  >
+        <mat-label>Authority</mat-label>
+        <mat-select multiple required name="authority" [(ngModel)]="data.authority">
+          <mat-option value="EMPLOYEE">EMPLOYEE</mat-option>
+          <mat-option value="MANAGER">MANAGER</mat-option>
+          <mat-option value="ADMIN">ADMIN</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="buttons-contain">
+        <button mat-raised-button type="submit" class="custom-mat-form-button" color="primary" (click)="onSubmit()" [disabled]="!signupForm.valid" >SUBMIT</button>
+        <button mat-raised-button class="custom-mat-form-button" mat-dialog-close>CANCEL</button></div>
+    </div>
+  </div>
+</form>

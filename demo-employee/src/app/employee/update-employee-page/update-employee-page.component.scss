@@ -1,0 +1,44 @@
+.employee-container{
+  display: flex;
+  justify-content: center;
+  background: whitesmoke;
+  align-items: center;
+
+}
+
+.employee-fields{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35rem;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+}
+
+.employee-title{
+  font-size: 24px;
+  margin: 15px 0;
+}
+
+.custom-mat-form-field {
+  width: 30rem;
+}
+
+.buttons-contain{
+  display: flex;
+}
+
+.custom-mat-form-button{
+  margin: 10px;
+}
+
+#is-invalid {
+  color: red;
+}
+
+.error-fields {
+  color: red;
+  font-size:13px;
+}
