@@ -10,8 +10,6 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeCardsDisplayPageComponent implements OnInit{
 
-  filterName: string = "";
-
   isTable : boolean = false;
 
   filterByName= new BehaviorSubject<string>("");
@@ -42,9 +40,8 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
   handleIsTable() {
     this.isTable = !this.isTable
   }
-  onSelected() {
-    this.filterByName.next(this.filterName);
-    return  this.employees$
+  onSelected(value : string) {
+    this.filterByName.next(value);
   }
 
   handleAddEmployee(){

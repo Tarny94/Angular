@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, VERSION} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, VERSION} from '@angular/core';
 import {EmployeeService} from "../employee.service";
 import {
   BehaviorSubject,
@@ -26,23 +26,7 @@ export class EmployeeTableDisplayPageComponent {
 
   displayedColumns: string[] = ['firstName', 'lastName', 'email', 'authority'];
 
-  filterByName= new BehaviorSubject<string>("");
-  filterByNameAction$ = this.filterByName.asObservable();
-
-
-  name = "Angular "+ VERSION.major
-
-  filterName: string = "";
-
-
-  employees$  = combineLatest(
-    [this.service.employees$, this.filterByNameAction$]
-  ).pipe(
-    tap(item => console.log("#item" ,item)),
-    map(([items, filteredName]) =>
-      items.filter(item  => filteredName !== ""? item.firstName.toLowerCase().includes(filteredName.toLowerCase())  : true),
-    ),
-  ) ;
+  @Input() employees$! : Observable<IEmployee[]>
 
   constructor(private service : EmployeeService, private router : Router) {
   }
@@ -51,10 +35,7 @@ export class EmployeeTableDisplayPageComponent {
     this.router.navigate(['employees',employeeId])
   }
 
-  onSelected() {
-    this.filterByName.next(this.filterName);
-    return this.employees$
-  }
+
 
   test() {
     const apples= ['apple1', 'apple2']

@@ -17,9 +17,6 @@ export class CreateEmployeePageComponent implements OnInit,  OnDestroy{
 
   subscription: Subscription = new Subscription();
 
-  invalid: any = {
-    color: 'red'
-  }
 
   constructor(public service : EmployeeService,
               private router : Router,

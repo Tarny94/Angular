@@ -1,1 +1,6 @@
-<p>header-employee-page works!</p>
+<div class="carts-search">
+  <mat-form-field class="custom-mat-form-field"  >
+    <mat-label >Search 🔎</mat-label>
+    <input matInput name="filterName" [(ngModel)]="filterName"  (ngModelChange)="onSelected()" >
+  </mat-form-field >
+</div>

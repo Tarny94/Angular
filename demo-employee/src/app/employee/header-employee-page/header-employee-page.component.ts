@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header-employee-page',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderEmployeePageComponent {
 
+  filterName: string = "";
+
+  @Output() filterByName : EventEmitter<string> = new EventEmitter<string>();
+
+  onSelected() {
+    this.filterByName.emit(this.filterName)
+  }
 }
