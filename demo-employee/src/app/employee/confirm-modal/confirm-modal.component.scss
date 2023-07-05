@@ -15,3 +15,9 @@
   justify-content: space-around;
   padding: 20px 0;
 }
+
+@media screen and (max-width: 700px){
+  .confirm-text{
+    padding: 10px;
+  }
+}

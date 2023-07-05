@@ -3,7 +3,7 @@
     <app-header-employee-page (filterByName)="onSelected($event)"></app-header-employee-page>
   <div class="cards-title-details">
     <h1 class="cards-title" >EMPLOYEE DETAILS</h1>
-    <button mat-raised-button class="custom-mat-form-button"  (click)="handleIsTable()">{{isTable? "SHOW CARDS" : "SHOW TABLE"}}</button>
+    <button mat-raised-button class="custom-mat-form-button show-table-button"  (click)="handleIsTable()">{{isTable? "SHOW CARDS" : "SHOW TABLE"}}</button>
     <button mat-raised-button class="custom-mat-form-button" (click)="handleAddEmployee()">ADD EMPLOYEE</button>
   </div>
     <app-employee-table-display-page *ngIf="isTable" [employees$]="employees$"></app-employee-table-display-page>

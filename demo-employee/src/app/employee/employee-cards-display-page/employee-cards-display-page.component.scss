@@ -29,5 +29,28 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .carts-containers {
+
+    .carts-details {
+      display: flex;
+       justify-content: center;
+      align-items: center;
+    }
+    .cards-title-details {
+      display: flex;
+      flex-direction: column;
+
+      .custom-mat-form-button{
+        margin-bottom: 10px;
+      }
+
+      .show-table-button{
+        display: none;
+      }
+    }
+  }
+}
+
 
 

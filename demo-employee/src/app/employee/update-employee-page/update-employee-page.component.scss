@@ -42,3 +42,17 @@
   color: red;
   font-size:13px;
 }
+
+@media screen and (max-width: 700px) {
+  .employee-container{
+    width: 20rem;
+
+    .employee-fields{
+        width: 100%;
+
+      .custom-mat-form-field{
+        width: 90%;
+      }
+    }
+  }
+}
