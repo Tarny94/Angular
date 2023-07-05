@@ -23,7 +23,6 @@ export class EmployeeService {
   ) ;
 
   getEmployee(id : string | null): Observable<IEmployee> {
-    console.log("#id: ", id)
     return  this.http.get<IEmployee>(`${this.url}/${id}`);
   }
 

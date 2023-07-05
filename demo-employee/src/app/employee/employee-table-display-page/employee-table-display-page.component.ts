@@ -90,10 +90,4 @@ export class EmployeeTableDisplayPageComponent {
     //    complete: () => console.log("Complete")
     // })
   }
-
-  handleAddEmployee(){
-    this.router.navigate(["/employees/create"])
-  }
-
-
 }

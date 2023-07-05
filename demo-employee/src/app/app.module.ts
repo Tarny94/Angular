@@ -20,6 +20,7 @@ import { UpdateEmployeePageComponent } from './employee/update-employee-page/upd
 import { ConfirmModalComponent } from './employee/confirm-modal/confirm-modal.component';
 import { HeaderEmployeePageComponent } from './employee/header-employee-page/header-employee-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { EmployeeDetailsPageComponent } from './employee/employee-details-page/employee-details-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CreateEmployeePageComponent,
     UpdateEmployeePageComponent,
     ConfirmModalComponent,
-    HeaderEmployeePageComponent
+    HeaderEmployeePageComponent,
+    EmployeeDetailsPageComponent
   ],
   imports: [
     BrowserModule,

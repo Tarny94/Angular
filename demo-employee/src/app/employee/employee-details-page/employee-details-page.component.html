@@ -1,0 +1,13 @@
+<div class="single-page-container">
+  <h2 class="single-page-title">EMPLOYEE DETAILS</h2>
+  <button mat-raised-button class="custom-mat-form-button" (click)="onUpdate()"> ⬅️Back</button>
+  <app-employee-card-page
+      [id]="employee.id"
+      [firstName]="employee.firstName"
+      [lastName]="employee.lastName"
+      [email]="employee.email"
+      [phone]="employee.phone"
+      [authority]="employee.authority"
+      (employeeUpdated)="onUpdate()"
+    ></app-employee-card-page>
+</div>
