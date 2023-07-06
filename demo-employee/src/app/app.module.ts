@@ -21,6 +21,7 @@ import { ConfirmModalComponent } from './employee/confirm-modal/confirm-modal.co
 import { HeaderEmployeePageComponent } from './employee/header-employee-page/header-employee-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EmployeeDetailsPageComponent } from './employee/employee-details-page/employee-details-page.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { EmployeeDetailsPageComponent } from './employee/employee-details-page/e
     MatTableModule,
     MatPaginatorModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
