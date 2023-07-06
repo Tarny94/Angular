@@ -1,0 +1,31 @@
+<div class="login-page-container">
+  <div class="login-page-fields">
+    <h2>AUTHENTICATION</h2>
+    <mat-form-field class="custom-mat-form-field"  >
+      <mat-label>Email</mat-label>
+      <input matInput
+             id="emailId"
+             name="email"
+             type="email"
+             email
+             #emailVar="ngModel"
+             [(ngModel)]="email"
+             required>
+    </mat-form-field>
+    <mat-form-field class="custom-mat-form-field"  >
+      <mat-label>Password</mat-label>
+      <input matInput
+             id="passwordId"
+             name="password"
+             minlength="6"
+             type="password"
+             #passwordVar="ngModel"
+             [(ngModel)]="password"
+             required>
+    </mat-form-field>
+    <div class="login-page-buttons">
+      <button mat-raised-button  color="primary"  class="login-buttons">SUBMIT</button>
+      <button mat-raised-button  class="login-buttons">CLEAR</button>
+    </div>
+  </div>
+</div>

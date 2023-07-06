@@ -17,3 +17,5 @@ export class Employee {
     public authority: string[] = []) {
   }
 }
+
+export const CHECK_IF_LOGGED_IN: string = "CHECK_IF_LOGGED_IN"
