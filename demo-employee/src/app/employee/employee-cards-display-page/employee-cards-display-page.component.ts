@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, map, Observable, Subject, tap } from 'rxjs';
 import { IEmployee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-employee-cards-display-page',
   templateUrl: './employee-cards-display-page.component.html',
@@ -19,7 +20,8 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
 
   constructor(
     private employeeService : EmployeeService,
-    private router : Router
+    private router : Router,
+    private store: Store<any>
   ) {
   }
 
@@ -38,7 +40,10 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
   }
 
   handleIsTable() {
-    this.isTable = !this.isTable
+   // this.isTable = !this.isTable
+   this.store.dispatch({
+    type: "[Table] Toggle Table Code"
+   })
   }
   onSelected(value : string) {
     this.filterByName.next(value);
@@ -50,5 +55,10 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadData()
+    this.store.select("employee").subscribe(
+      product => {
+        this.isTable = product.showTableCode
+      }
+    )
   }
 }
