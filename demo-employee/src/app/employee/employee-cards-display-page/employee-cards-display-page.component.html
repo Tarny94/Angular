@@ -6,7 +6,6 @@
     <button mat-raised-button class="custom-mat-form-button show-table-button"  (click)="handleIsTable()">{{isTable? "SHOW CARDS" : "SHOW TABLE"}}</button>
     <button mat-raised-button class="custom-mat-form-button" (click)="handleAddEmployee()">ADD EMPLOYEE</button>
   </div>
-  <app-login-page></app-login-page>
     <app-employee-table-display-page *ngIf="isTable" [employees$]="employees$"></app-employee-table-display-page>
   <div *ngIf="!isTable" class="carts-details">
     <div *ngFor="let employee of employees$ | async">

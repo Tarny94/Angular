@@ -18,6 +18,10 @@ export class LoginPageComponent {
   ) {
   }
 
-
+  handleLogin() {
+    console.log(this.email, this.password);
+    
+    this.authService.handleLogin(this.email, this.password)
+  }
 
 }
