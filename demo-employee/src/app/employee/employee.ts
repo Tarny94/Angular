@@ -7,6 +7,12 @@ export interface IEmployee {
   authority: string[];
 }
 
+export interface ILoggedInData{
+  isLoggedIn : boolean;
+  employeeId : string;
+  authority: string[];
+}
+
 export class Employee {
 
   constructor(

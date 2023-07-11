@@ -13,8 +13,20 @@
 
       </mat-card-content>
       <mat-card-actions class="card-buttons-contain" >
-        <button mat-stroked-button  color="primary" style="margin-right: 5px" class="employee-cart-buttons" (click)="onSubmit()">EDIT</button>
-        <button mat-stroked-button  color="primary" style="margin-right: 5px" class="employee-cart-buttons" (click)="onDelete()">DELETE</button>
+        <button mat-stroked-button  
+                color="primary"
+                style="margin-right: 5px"
+                class="employee-cart-buttons"
+                (click)="onSubmit()"
+                [disabled]="handleEditValidation()">EDIT
+                  </button>
+        <button 
+          mat-stroked-button  
+          color="primary" 
+          style="margin-right: 5px" 
+          class="employee-cart-buttons" 
+          (click)="onDelete()"
+          [disabled]="handleDeleteValidation()">DELETE</button>
       </mat-card-actions>
     </mat-card>
   </form>
