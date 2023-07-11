@@ -4,6 +4,8 @@ import { BehaviorSubject, combineLatest, map, Observable, Subject, tap } from 'r
 import { IEmployee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { Store } from '@ngrx/store';
+import { State, getShowEmployeeCode } from '../state/employee.reducer';
+
 @Component({
   selector: 'app-employee-cards-display-page',
   templateUrl: './employee-cards-display-page.component.html',
@@ -21,7 +23,7 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
   constructor(
     private employeeService : EmployeeService,
     private router : Router,
-    private store: Store<any>
+    private store: Store<State>
   ) {
   }
 
@@ -55,10 +57,8 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadData()
-    this.store.select("employee").subscribe(
-      product => {
-        this.isTable = product.showTableCode
-      }
+    this.store.select(getShowEmployeeCode).subscribe(
+      product => this.isTable = product
     )
   }
 }

@@ -19,7 +19,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { StoreModule } from '@ngrx/store';
-import { productReducer } from './state/employee.reducer';
+import { employeeReducer } from './state/employee.reducer';
 
 
 
@@ -47,7 +47,7 @@ import { productReducer } from './state/employee.reducer';
     MatPaginatorModule,
     MatCardModule,
     MatDialogModule,
-    StoreModule.forFeature("employee",productReducer)
+    StoreModule.forFeature("employee",employeeReducer)
   ]
 })
 export class EmployeeModule { }
