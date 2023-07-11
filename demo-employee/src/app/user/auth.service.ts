@@ -40,7 +40,7 @@ export class AuthService implements OnInit{
     // )
 
     const expirationData = new Date();
-    expirationData.setMinutes(expirationData.getMinutes() + 1)
+    expirationData.setMinutes(expirationData.getMinutes() + 10)
 
     this.employees$.subscribe(items =>{
       this.setIsLoggedIn(items.some(item => item.email === email));
