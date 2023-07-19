@@ -1,3 +1,5 @@
+
+
 export interface IEmployee {
   id : string
   firstName: string;
@@ -17,3 +19,4 @@ export class Employee {
     public authority: string[] = []) {
   }
 }
+

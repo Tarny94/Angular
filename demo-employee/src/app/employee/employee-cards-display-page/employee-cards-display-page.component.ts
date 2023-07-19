@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, map, Observable, Subject, tap } from 'rxjs';
-import { IEmployee } from '../employee';
+import { IEmployee} from '../employee';
 import { EmployeeService } from '../employee.service';
 import { Store } from '@ngrx/store';
 import { State, getShowEmployeeCode } from '../state/employee.reducer';
+import { setEmployees, toggleIfIsTable } from '../employee.actions';
 
 @Component({
   selector: 'app-employee-cards-display-page',
@@ -32,8 +33,11 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
       [this.employeeService.employees$, this.filterByNameAction$]
     ).pipe(
       tap(item => console.log("#item" ,item)),
-      map(([items, filteredName]) =>
-        items.filter(item  => filteredName !== ""? item.firstName.toLowerCase().includes(filteredName.toLowerCase())  : true),
+      map(([items, filteredName]) =>{
+        const employeeList = items.filter(item  => filteredName !== ""? item.firstName.toLowerCase().includes(filteredName.toLowerCase())  : true)
+        this.store.dispatch(setEmployees({employees: employeeList}))
+        return employeeList
+       }
       )
     ) ;
   }
@@ -43,10 +47,9 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
 
   handleIsTable() {
    // this.isTable = !this.isTable
-   this.store.dispatch({
-    type: "[Table] Toggle Table Code"
-   })
+   this.store.dispatch(toggleIfIsTable())
   }
+
   onSelected(value : string) {
     this.filterByName.next(value);
   }
@@ -58,7 +61,7 @@ export class EmployeeCardsDisplayPageComponent implements OnInit{
   ngOnInit(): void {
     this.loadData()
     this.store.select(getShowEmployeeCode).subscribe(
-      product => this.isTable = product
+      isTable => this.isTable = isTable
     )
   }
 }

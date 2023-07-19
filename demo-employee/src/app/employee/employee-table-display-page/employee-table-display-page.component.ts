@@ -2,7 +2,6 @@ import {Component, Input, OnDestroy, OnInit, VERSION} from '@angular/core';
 import {EmployeeService} from "../employee.service";
 import {
   BehaviorSubject,
-  combineLatest,
   filter,
   from,
   map,
@@ -16,27 +15,55 @@ import {
 import {IEmployee} from "../employee";
 import {Router} from "@angular/router";
 import { MatTableDataSource } from '@angular/material/table';
+import { Store } from '@ngrx/store';
+import { setCurrentEmployee } from '../employee.actions';
+import { getEmployees } from '../state/employee.reducer';
 
 @Component({
   selector: 'app-employee-table-display-page',
   templateUrl: './employee-table-display-page.component.html',
   styleUrls: ['./employee-table-display-page.component.scss']
 })
-export class EmployeeTableDisplayPageComponent {
+export class EmployeeTableDisplayPageComponent implements OnInit {
 
   displayedColumns: string[] = ['firstName', 'lastName', 'email', 'authority'];
 
   @Input() employees$! : Observable<IEmployee[]>
 
-  constructor(private service : EmployeeService, private router : Router) {
+  employeeList : IEmployee[] = [];
+
+  employee!: IEmployee;
+
+  constructor(
+     private service : EmployeeService,
+     private router : Router,
+     private store : Store
+    ) {
+  }
+  ngOnInit(): void {
+    this.store.select(getEmployees).subscribe(item => {
+      this.employeeList = item
+      console.log("@@@1", this.employeeList);
+    })
+    console.log("@@@2", this.employeeList);
   }
 
   onClick(employeeId: string) {
+    this.employees$.subscribe(items =>{
+      items.map(item => {
+        if(item.id ===employeeId) {
+          this.handleTestReduxDispachEmployee(item)
+        }
+      })
+   }
+  )
     this.router.navigate(['employees',employeeId])
   }
 
-
-
+  handleTestReduxDispachEmployee(employee : IEmployee) {
+    this.store.dispatch(setCurrentEmployee({employee}))
+  }
+  
   test() {
     const apples= ['apple1', 'apple2']
 
